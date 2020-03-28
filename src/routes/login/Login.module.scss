@@ -1,0 +1,15 @@
+@import '../../index.scss';
+
+.pageWrapper {
+    background-color: #f5f5f5;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginContainer {
+    width: 400px;
+    padding: 30px;
+    border-radius: 8px;
+    @include shadow();
+}

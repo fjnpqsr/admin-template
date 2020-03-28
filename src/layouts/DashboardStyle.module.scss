@@ -1,0 +1,32 @@
+@import '../index.scss';
+
+.layoutContainer {
+    min-height: 100%!important;
+}
+.logo {
+    height: 64px;
+    background-color: #aaa;
+    box-sizing: border-box;
+    border: 15px solid #fff;
+}
+.siderWrapper {
+    @include shadow();
+    z-index: 10;
+    max-height: 100vh;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.siderContainer {
+    height: 100%;
+    background-color: #fff;
+    // overflow-anchor: none;
+    touch-action: auto;
+    padding-bottom: 48px;
+}
+.layoutHeader {
+    padding: 0;
+    padding-right: 15px;
+    text-align: right;
+    background-color: #f9f9f9;
+    @include shadow();
+}
