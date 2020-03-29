@@ -35,7 +35,7 @@ const routerConfig = ({ app, history, ...props }) => {
       <Route
         exact={LoginPage.exact}
         path={'/exception/403'}
-        component={NotAuthPage}
+        component={(props) => <NotAuthPage {...props} test={new Date().valueOf()} />}
       />
 
       <Route component={NotFoundPage} />

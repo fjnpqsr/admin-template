@@ -13,7 +13,7 @@ export default {
   },
   '/dashboard/products': {
     exact: true,
-    models: ['home', 'test'],
+    models: ['home', 'products'],
     component: lazy(() => import('./routes/products/Product'))
   },
   '/dashboard/users': {
