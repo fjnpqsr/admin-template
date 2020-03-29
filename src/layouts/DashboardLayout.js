@@ -70,7 +70,7 @@ class DashBoardLayout extends React.Component {
         <Layout>
           <Header className={css.layoutHeader} >
             {!userInfo && <Link to='/login'>登录</Link>}
-            {userInfo && <a onClick={this.exit}>退出</a>}
+            {userInfo && <span style={{ color: '#1890ff', cursor: 'pointer' }} onClick={this.exit}>退出</span>}
           </Header>
           <Content >
             <div className='site-layout-background'>
