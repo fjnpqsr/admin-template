@@ -26,12 +26,13 @@ export default {
         message.error('账号或密码错误')
       }
     },
-    * exit ({ payload = {} }, { put, call }) {
+    * exit ({ payload = {} }, { put, call, ...props }) {
       try {
         app.context.remove(USER_INFO_CONTEXT_NAME)
         setAuthorization()
         yield put(routerRedux.push('/login'))
       } catch (e) {
+        console.log(e)
         message.destroy()
         message.error('退出失败')
       }

@@ -2,6 +2,7 @@ import React from 'react'
 import './index.scss'
 // import * as serviceWorker from './serviceWorker'
 import createApp from './core'
+import createEffectLocation from './plugins/withHistory'
 import Router from './router'
 import { Spin } from 'antd'
 
@@ -21,6 +22,9 @@ const app = createApp({
   routerConfig: Router,
   loadingComponent: LoadingComponent
 })
+
+app.use(createEffectLocation())
+
 // 方便查看app实例
 window.app = app
 
