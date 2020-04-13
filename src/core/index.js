@@ -9,6 +9,7 @@ import {
 import { connectRouter, routerMiddleware, ConnectedRouter } from 'connected-react-router'
 import AsyncComponent from './AsyncComponent'
 import createContext from './context'
+import apiCreator from './apiCreator'
 import AuthRoute, { getAuthorization, setAuthorization } from './AuthRoute'
 
 const { isFunction } = utils
@@ -16,8 +17,7 @@ const { isFunction } = utils
 export let app = {}
 
 export default function (opts = {}) {
-  const { routerConfig, loadingComponent } = opts
-
+  const { routerConfig, loadingComponent, apis } = opts
   const history = opts.history || createBrowserHistory()
 
   const loadPlugins = () => {
@@ -43,7 +43,7 @@ export default function (opts = {}) {
   const oldAppStart = app.start
 
   app.start = start
-
+  app.apis = apiCreator.init(apis)
   app.loadingComponent = loadingComponent
 
   invariant(

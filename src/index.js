@@ -4,6 +4,7 @@ import './index.scss'
 import createApp from './core'
 import createEffectLocation from './plugins/withHistory'
 import Router from './router'
+import apis from './services/api'
 import { Spin } from 'antd'
 
 const LoadingComponent = () => (
@@ -20,9 +21,12 @@ const LoadingComponent = () => (
 
 const app = createApp({
   routerConfig: Router,
+  apis: apis,
   loadingComponent: LoadingComponent
 })
 
+// plugins
+// 在action中注入history, 方便在effects中进行路由跳转
 app.use(createEffectLocation())
 
 // 方便查看app实例
