@@ -27,6 +27,10 @@ export default {
     models: ['home', 'test'],
     component: lazy(() => import('./routes/Settings/Settings'))
   },
+  '/dashboard/todos': {
+    exact: true,
+    component: lazy(() => import('./routes/Todos'))
+  },
   '/dashboard/exception/403': {
     exact: true,
     component: lazy(() => import('./routes/Exception/403'))

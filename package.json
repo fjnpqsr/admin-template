@@ -3,31 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
     "antd": "^4.0.3",
     "antd-dayjs-webpack-plugin": "^0.0.9",
-    "babel-plugin-import": "^1.13.0",
     "connected-react-router": "^6.8.0",
-    "customize-cra": "^0.9.1",
     "dva-core": "^2.0.2",
     "history": "^4.10.1",
     "invariant": "^2.2.4",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
-    "react-app-rewired": "^2.1.5",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.1",
     "redux": "^4.0.5"
   },
   "scripts": {
-    "start": "react-app-rewired start",
-    "build": "react-app-rewired build",
-    "test": "react-app-rewired test",
-    "eject": "react-app-rewired eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -43,5 +36,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^5.6.4",
+    "craco-less": "^1.16.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
+    "babel-plugin-import": "^1.13.0",
+    "less-loader": "^6.1.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.2.1"
   }
 }
