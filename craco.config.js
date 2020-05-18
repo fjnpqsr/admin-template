@@ -6,10 +6,14 @@ module.exports = {
       plugin: CracoLessPlugin,
       options: {
         lessLoaderOptions: {
-          modifyVars: { '@primary-color': '#1DA57A' },
           javascriptEnabled: true
         }
       }
     }
-  ]
+  ],
+  babel: {
+    plugins: [
+      ['import', { 'libraryName': 'antd', 'libraryDirectory': 'es', 'style': true }]
+    ]
+  }
 }
