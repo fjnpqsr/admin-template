@@ -23,8 +23,8 @@ base on react &amp; dva-core &amp; redux &amp; react-router
 ## 2020-05-20
 
 #### 编译优化
-    - react/react-dom使用umd模式引用, 不编译react/react-dom进bundle.js
-    - webpack产出分析(webpack-bundle-analyzer)
+- react/react-dom使用umd模式引用, 不编译react/react-dom进bundle.js
+- webpack产出分析(webpack-bundle-analyzer)
 
 
 
