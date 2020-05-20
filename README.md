@@ -12,10 +12,17 @@ base on react &amp; dva-core &amp; redux &amp; react-router
 > react-scripts-rewired 不支持 react-scripts 3+ 导致项目启动报错, 选择carco作为替代库
 
 
+- 编译优化
+
+    - react/react-dom使用umd模式引用, 不编译react/react-dom进bundle.js
+    - webpack产出分析(webpack-bundle-analyzer)
+
+
 
 
 ### todos
 
 - [ ] 优化项目产出体积
-    - [ ] react/react-dom使用umd模式引用
-    - [ ] 增加产出分析插件
+    - [X] react/react-dom使用umd模式引用
+    - [X] 增加产出分析插件
+    - [ ] chunks分包
