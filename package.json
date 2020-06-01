@@ -5,7 +5,6 @@
   "dependencies": {
     "antd": "^4.0.3",
     "connected-react-router": "^6.8.0",
-    "cross-env": "^7.0.2",
     "dva-core": "^2.0.2",
     "history": "^4.10.1",
     "invariant": "^2.2.4",
@@ -19,8 +18,7 @@
   "scripts": {
     "start": "craco start",
     "build:analyze": "craco build --analyze true",
-    "build:prod": "craco build",
-    "test": "craco test"
+    "build:prod": "craco build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -45,6 +43,7 @@
     "babel-plugin-import": "^1.13.0",
     "craco-less": "^1.16.0",
     "node-sass": "^4.13.1",
+    "standard": "^14.3.4",
     "webpack-bundle-analyzer": "^3.8.0"
   }
 }
