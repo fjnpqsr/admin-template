@@ -1,10 +1,11 @@
 import React from 'react'
-import dazzle from '@qsr/dazzle'
+import Dazzle from '@qsr/dazzle'
 
 const TestPage = () => {
   return (
     <div>
       test page
+      <Dazzle />
     </div>
   )
 }

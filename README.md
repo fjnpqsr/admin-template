@@ -57,6 +57,7 @@ base on react &amp; dva-core &amp; redux &amp; react-router
 - [ ] 优化项目产出体积
     - [X] react/react-dom使用umd模式引用
     - [X] 增加产出分析插件
+    - [X] 引入自定义react组件配置
     - [ ] core改为umd引用 
     - [ ] chunks分包
     - [ ] ...

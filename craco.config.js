@@ -45,8 +45,8 @@ module.exports = function (env) {
           },
           mode: argv.mode,
           externals: {
-            'react': 'React',
-            'react-dom': 'ReactDOM'
+            // 'react': 'React',
+            // 'react-dom': 'ReactDOM'
           }
         }
       }
