@@ -16,6 +16,7 @@ const routerConfig = ({ app, history, ...props }) => {
 
   const RootRouter = routerData['/dashboard'].component
   const LoginPage = routerData['/login'].component
+  const TestPage = routerData['/test'].component
   return (
     <Switch>
       <Redirect exact path={'/'} to={'/dashboard'} />
@@ -35,7 +36,13 @@ const routerConfig = ({ app, history, ...props }) => {
       <Route
         exact={LoginPage.exact}
         path={'/exception/403'}
-        component={(props) => <NotAuthPage {...props} test={new Date().valueOf()} />}
+        component={(props) => <NotAuthPage {...props} />}
+      />
+
+      <Route
+        exact={LoginPage.exact}
+        path={'/component/test'}
+        component={(props) => <TestPage {...props} />}
       />
 
       <Route component={NotFoundPage} />
