@@ -41,7 +41,7 @@ const routerConfig = ({ app, history, ...props }) => {
 
       <Route
         exact={LoginPage.exact}
-        path={'/component/test'}
+        path={'/test'}
         component={(props) => <TestPage {...props} />}
       />
 

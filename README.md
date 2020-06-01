@@ -26,8 +26,31 @@ base on react &amp; dva-core &amp; redux &amp; react-router
 - react/react-dom使用umd模式引用, 不编译react/react-dom进bundle.js
 - webpack产出分析(webpack-bundle-analyzer)
 
+## 2020-05-20
 
+`less-loader`升级至6+, `carco.config.js`配置文件修如下
 
+```javascript
+    module.exports = {
+        // ...
+        plugins: [
+            {
+                plugin: CracoLessPlugin,
+                options: {
+                    lessLoaderOptions: {
+                    // javascriptEnabled: true,
+                    // less-loader javascriptEnabled 的配置位置改变
+                    lessOptions: {
+                          javascriptEnabled: true
+                        }
+                    },
+                }
+            }
+        ]
+        //bael
+        //webpack....
+    }   
+```
 
 # todos
 
@@ -37,4 +60,3 @@ base on react &amp; dva-core &amp; redux &amp; react-router
     - [ ] core改为umd引用 
     - [ ] chunks分包
     - [ ] ...
-    
