@@ -44,4 +44,10 @@ export default {
     models: ['login'],
     component: lazy(() => import('./routes/login/Login'))
   },
+  '/test': {
+    exact: true,
+    // models: ['test'],
+    component: lazy(() => import('./routes/test'))
+  },
+
 }

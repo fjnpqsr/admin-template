@@ -1,6 +1,7 @@
 
 const { when } = require('@craco/craco')
 const { argv } = require('yargs')
+const path = require('path')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const CracoLessPlugin = require('craco-less')
 
@@ -11,13 +12,17 @@ module.exports = function (env) {
         plugin: CracoLessPlugin,
         options: {
           lessLoaderOptions: {
-            javascriptEnabled: true
-          }
+            // javascriptEnabled: true,
+            lessOptions: {
+              javascriptEnabled: true
+            }
+          },
         }
       }
     ],
     babel: {
       plugins: [
+        "@babel/plugin-transform-runtime",
         ['import', { 'libraryName': 'antd', 'libraryDirectory': 'es', 'style': true }]
       ]
     },
@@ -30,10 +35,18 @@ module.exports = function (env) {
       configure: (webpackConfig, { env, paths }) => {
         return {
           ...webpackConfig,
+          module: {
+            rules: webpackConfig.module.rules.concat({
+              test: '/\.js$/',
+              include: [
+                path.resolve(__dirname, '/node_modules/@qsr/dazzle'),
+              ]
+            })
+          },
           mode: argv.mode,
           externals: {
-            'react': 'React',
-            'react-dom': 'ReactDOM'
+            // 'react': 'React',
+            // 'react-dom': 'ReactDOM'
           }
         }
       }
