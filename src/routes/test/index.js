@@ -1,11 +1,11 @@
 import React from 'react'
-import Dazzle from '@qsr/dazzle'
+// import Dazzle from '@qsr/dazzle'
 
 const TestPage = () => {
   return (
     <div>
       test page
-      <Dazzle />
+      {/* <Dazzle /> */}
     </div>
   )
 }

@@ -52,6 +52,33 @@ base on react &amp; dva-core &amp; redux &amp; react-router
     }   
 ```
 
+## 2020-06-04
+
+增加热更新功能, 解决保存文件更新反馈慢的问题
+
+`craco.config.js`
+
+```javascript
+
+    //webpackConfig
+    devServer: {
+        ...webpackConfig.devServer,
+        hot: true
+    },
+
+```
+
+`src/index.js`
+```javascript
+
+    ...code
+
+    if (module.hot) {
+        module.hot.accept()
+    }
+
+```
+
 # todos
 
 - [ ] 优化项目产出体积
