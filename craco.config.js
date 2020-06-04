@@ -16,14 +16,14 @@ module.exports = function (env) {
             lessOptions: {
               javascriptEnabled: true
             }
-          },
+          }
         }
       }
     ],
     babel: {
       plugins: [
-        "@babel/plugin-transform-runtime",
-        ['import', { 'libraryName': 'antd', 'libraryDirectory': 'es', 'style': true }]
+        '@babel/plugin-transform-runtime',
+        ['import', { libraryName: 'antd', libraryDirectory: 'es', style: true }]
       ]
     },
     webpack: {
@@ -39,7 +39,7 @@ module.exports = function (env) {
             rules: webpackConfig.module.rules.concat({
               test: '/\.js$/',
               include: [
-                path.resolve(__dirname, '/node_modules/@qsr/dazzle'),
+                path.resolve(__dirname, '/node_modules/@qsr/dazzle')
               ]
             })
           },
