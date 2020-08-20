@@ -33,7 +33,6 @@ module.exports = function (env) {
         }), () => {})
       ],
       configure: (webpackConfig, { env, paths }) => {
-        console.log(webpackConfig.module.rules)
         return {
           ...webpackConfig,
           // module: {
