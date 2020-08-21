@@ -9,11 +9,9 @@ const writeDeepProps = function (obj, path, value) {
   const state = {};
 
   const _path = path.split(SCOPES_SPLITER);
-  console.log(path)
   const handleArr = [state].concat(_path);
 
   handleArr.reduce((root, current, index) => {
-    console.log({root})
     if (index !== handleArr.length -1) {
       if (!root[current]) {
         root[current] = {}
@@ -42,7 +40,7 @@ export default function (initState = defaultState) {
   const [store, dispatch] = useReducer(updateState, initState );
 
   return {
-    dispatch,
-    store
+    useDispatch: dispatch,
+    useStore: store
   }
 }
