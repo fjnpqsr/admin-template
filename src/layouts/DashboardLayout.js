@@ -1,17 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Layout, Menu, Modal } from 'antd'
-import {
-  UploadOutlined,
-  VideoCameraOutlined,
-  UserOutlined
-} from '@ant-design/icons'
+import { Layout, Menu, Modal, Breadcrumb } from 'antd'
 import css from './DashboardStyle.module.scss'
 import RelatedSwitch from '../components/RelatedSwitch'
 import { Link, Route } from 'react-router-dom'
 import NotFoundPage from '../routes/Exception/404'
+import menus from './menus'
 
-const { Header, Content, Sider, Footer } = Layout
+const { Header, Content, Sider } = Layout
 
 class DashBoardLayout extends React.Component {
   constructor (props) {
@@ -19,9 +15,10 @@ class DashBoardLayout extends React.Component {
     this.state = {
       collapsed: false
     }
-    this.exit = this.exit.bind(this)
+    this.handleExit = this.handleExit.bind(this)
   }
-  exit () {
+
+  handleExit () {
     const { dispatch } = this.props
     Modal.confirm({
       title: '退出',
@@ -32,9 +29,18 @@ class DashBoardLayout extends React.Component {
       }
     })
   }
+
   render () {
-    const { history, match, context = {} } = this.props
+    const { history, match, context = {}, location = {}, routerData = {} } = this.props
     const { userInfo } = context
+    const { pathname = '' } = location
+    const paths = pathname.split('/').filter(p => !!p).reduce((total, current, currIndex) => {
+      if (currIndex === 0) {
+        return total.concat(`/${current}`)
+      }
+      return total.concat(`${total[total.length - 1]}/${current}`)
+    }, [])
+
     return (
       <Layout className={css.layoutContainer}>
         <section className={css.siderWrapper}>
@@ -46,40 +52,38 @@ class DashBoardLayout extends React.Component {
               collapsedWidth='0'
             >
               <div className={css.logo} />
-              <Menu mode='inline' defaultSelectedKeys={['1']}>
-                <Menu.Item key='1' onClick={() => { history.push('/dashboard/products') }}>
-                  <UserOutlined />
-                  <span className='nav-text' >nav 1</span>
-                </Menu.Item>
-                <Menu.Item key='2' onClick={() => { history.push('/dashboard/users') }}>
-                  <VideoCameraOutlined />
-                  <span className='nav-text'>nav 2</span>
-                </Menu.Item>
-                <Menu.Item key='3' onClick={() => { history.push('/dashboard/settings') }}>
-                  <UploadOutlined />
-                  <span className='nav-text'>nav 3</span>
-                </Menu.Item>
-                <Menu.Item key='4' onClick={() => { history.push('/dashboard/about') }}>
-                  <UserOutlined />
-                  <span className='nav-text'>nav 4</span>
-                </Menu.Item>
+              <Menu mode='inline' defaultSelectedKeys={menus[0] ? menus[0].path : ''}>
+                {menus.map(m => (
+                  <Menu.Item key={m.path} onClick={() => { history.push(m.path) }}>
+                    <span className='nav-text'>{m.title}</span>
+                  </Menu.Item>
+                ))}
               </Menu>
             </Sider>
           </div>
         </section>
         <Layout>
-          <Header className={css.layoutHeader} >
+          <Header className={css.layoutHeader}>
             {!userInfo && <Link to='/login'>登录</Link>}
-            {userInfo && <span style={{ color: '#1890ff', cursor: 'pointer' }} onClick={this.exit}>退出</span>}
+            {userInfo && <span style={{ color: '#1890ff', cursor: 'pointer' }} onClick={this.handleExit}>退出</span>}
           </Header>
-          <Content >
-            <div className='site-layout-background'>
-              <RelatedSwitch match={match} redirectPath={'/dashboard/exception/403'} >
+          <section className={css.breadcrumbLine}>
+            <Breadcrumb>
+              {paths.map(path => (
+                <Breadcrumb.Item key={path}>
+                  <a href={path}>{routerData[path] ? routerData[path].title : ''}</a>
+                </Breadcrumb.Item>
+              ))}
+            </Breadcrumb>
+          </section>
+          <Content className={css.contentWrap}>
+            <div className={css.content}>
+              <RelatedSwitch match={match} redirectPath='/dashboard/exception/403'>
                 <Route component={NotFoundPage} />
               </RelatedSwitch>
             </div>
           </Content>
-          <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+          {/* <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer> */}
         </Layout>
       </Layout>
     )

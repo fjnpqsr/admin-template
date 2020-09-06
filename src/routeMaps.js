@@ -3,29 +3,16 @@ import { lazy } from 'react'
 export default {
   '/dashboard': {
     auth: ['member'],
+    title: '仪表盘',
     models: ['home', 'login'],
     component: lazy(() => import('./layouts/DashboardLayout'))
   },
-  '/dashboard/preview': {
+  '/dashboard/print-text-paper': {
     exact: true,
+    auth: ['member'],
+    title: '打印字帖',
     models: ['home', 'test'],
-    component: lazy(() => import('./routes/Preview'))
-  },
-  '/dashboard/products': {
-    exact: true,
-    models: ['home', 'products'],
-    component: lazy(() => import('./routes/products/Product'))
-  },
-  '/dashboard/users': {
-    exact: true,
-    auth: ['111'],
-    models: ['home', 'test'],
-    component: lazy(() => import('./routes/Users/Users'))
-  },
-  '/dashboard/settings': {
-    exact: true,
-    models: ['home', 'test'],
-    component: lazy(() => import('./routes/Settings/Settings'))
+    component: lazy(() => import('./routes/PrintTextPaper/PrintTextPaper.js'))
   },
   '/dashboard/exception/403': {
     exact: true,
@@ -39,11 +26,5 @@ export default {
     exact: true,
     models: ['login'],
     component: lazy(() => import('./routes/login/Login'))
-  },
-  '/test': {
-    exact: true,
-    // models: ['test'],
-    component: lazy(() => import('./routes/test'))
-  },
-
+  }
 }

@@ -2,7 +2,7 @@ import React from 'react'
 
 import { AuthRoute } from '../core'
 
-let routerData = {}
+const routerData = {}
 
 const modelResolver = (model) => require(`../models/${model}`)
 
@@ -20,6 +20,7 @@ export const getRoutes = (routerConfigs = {}, app = {}) => {
             {...props}
             app={app}
             auth={r.auth}
+            routerData={routerData}
             component={r.component}
             modelResolver={modelResolver}
             models={r.models}

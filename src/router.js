@@ -16,33 +16,26 @@ const routerConfig = ({ app, history, ...props }) => {
 
   const RootRouter = routerData['/dashboard'].component
   const LoginPage = routerData['/login'].component
-  const TestPage = routerData['/test'].component
   return (
     <Switch>
-      <Redirect exact path={'/'} to={'/dashboard'} />
-      <Redirect exact path={'/dashboard'} to={'/dashboard/preview'} />
+      <Redirect exact path='/' to='/dashboard' />
+      <Redirect exact path='/dashboard' to='/dashboard/preview' />
       <Route
         exact={RootRouter.exact}
-        path={'/dashboard'}
+        path='/dashboard'
         component={(props) => <RootRouter {...props} redirectPath='/login' />}
       />
 
       <Route
         exact={LoginPage.exact}
-        path={'/login'}
+        path='/login'
         component={(props) => <LoginPage {...props} />}
       />
 
       <Route
         exact={LoginPage.exact}
-        path={'/exception/403'}
+        path='/exception/403'
         component={(props) => <NotAuthPage {...props} />}
-      />
-
-      <Route
-        exact={LoginPage.exact}
-        path={'/test'}
-        component={(props) => <TestPage {...props} />}
       />
 
       <Route component={NotFoundPage} />
