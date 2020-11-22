@@ -7,12 +7,9 @@ export default {
     models: ['home', 'login'],
     component: lazy(() => import('./layouts/DashboardLayout'))
   },
-  '/dashboard/print-text-paper': {
+  '/dashboard/components': {
     exact: true,
-    auth: ['member'],
-    title: '打印字帖',
-    models: ['home', 'test'],
-    component: lazy(() => import('./routes/PrintTextPaper/PrintTextPaper.js'))
+    component: lazy(() => import('./routes/Components'))
   },
   '/dashboard/exception/403': {
     exact: true,
