@@ -6,6 +6,8 @@
     "antd": "^4.0.3",
     "connected-react-router": "^6.8.0",
     "dva-core": "^2.0.2",
+    "echarts": "^5.0.0",
+    "echarts-for-react": "^2.0.16",
     "history": "^4.10.1",
     "invariant": "^2.2.4",
     "react": "^16.13.1",

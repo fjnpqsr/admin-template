@@ -15,6 +15,10 @@ export default {
     exact: true,
     component: lazy(() => import('./routes/AlarmVoice'))
   },
+  '/dashboard/charts': {
+    exact: true,
+    component: lazy(() => import('./routes/Charts'))
+  },
   '/dashboard/exception/403': {
     exact: true,
     component: lazy(() => import('./routes/Exception/403'))
